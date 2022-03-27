@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Responsive Hamburger Toggle Menu with jQuery</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic">
+<link rel="stylesheet" href="style.css">
+
+<!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="main.js"></script>
+
+
+</head>
+
+<body>
+	<h1 class="title">
+	<img class="b_image" src="images/banana.jpg" alt=""></h1>
+	<div class="wrapper">
+		<header id="header">
+			<nav id="desktop">
+				<ul>
+					<li><a href="">스티커 구매</a></li>
+					<li><a href="">캐릭터 소개</a></li>
+					<li><a href="">공지사항</a></li>
+					<!--<li><a href="">menu4</a></li>
+					<li><a href="">menu5</a></li>-->
+				</ul>
+			</nav>
+			<nav id="mobile">
+				<ul>
+					<li><a href="">스티커 구매</a></li>
+					<li><a href="">캐릭터 소개</a></li>
+					<li><a href="">공지사항</a></li>
+					<!--<li><a href="">menu4</a></li>
+					<li><a href="">menu5</a></li>-->
+				</ul>
+			</nav>
+			<a class="tab" href=""><span>tab</span></a>
+		</header>
+		<div class="dim"></div>
+
+
+
+
+<div class="container">
+	<div class="viewer">
+		<img class="image1" src="images/slide1.jpg" alt="">
+		<img class="image2" src="images/slide2.jpg" alt="">
+		<img class="image3" src="images/slide3.jpg" alt="">
+		<img class="image4" src="images/slide4.jpg" alt="">
+	</div>
+	<ul class="btn_group">
+		<li id="btn0"><a href="images/slide1.jpg">1</a></li>
+		<li id="btn1"><a href="images/slide2.jpg">2</a></li>
+		<li id="btn2"><a href="images/slide3.jpg">3</a></li>
+		<li id="btn3"><a href="images/slide4.jpg">4</a></li>
+	</ul>
+	
+	<div class="control">
+		<a href="" class="prev">prev</a>
+		<a href="" class="next">next</a>
+	</div>
+
+</div>
+<p style="text-align:center; margin-top:20px; font-size:25px;"><br> 안녕하세요. 바나나 플래닛 입니다. <br> 즐거운 일상을 담은 행성, 바나나 플래닛 <br>다꾸물품/스티커/떡메/마테/각종굿즈 판매합니다.</p>
+<p style="text-align:center; font-size:30px; margin-top:20px;">스크롤 해보자👇</p>
+<p style="text-align:center; margin-top:20px; font-size:40px;">❗링크 방문하기❗</p>
+
+<!-- 가로 스크롤 부분(제품 바로가기 링크) !-->
+<div class="box">
+	<div id="tab">
+	  <ul>
+		<li><a href="https://smartstore.naver.com/banana_planet/profile"><img src="images/slide1.jpg" style="width:120px; height:120px;"><p>스마트스토어</p></a></li>
+		<li><a href="https://witchform.com/deposit_form.php?idx=137602"><img src="images/slide1.jpg" style="width:120px; height:120px;">구매하기</a></li>
+		<li><a href="https://www.instagram.com/banana.planet_998/"><img src="images/slide1.jpg" style="width:120px; height:120px;">바나나플래닛 인스타</a></li>
+		<li><a href="https://www.instagram.com/darling_ham/"><img src="images/slide1.jpg" style="width:120px; height:120px;">달링햄 인스타</a></li>
+		<li><a href="https://www.instagram.com/_joyhome_story/"><img src="images/slide1.jpg" style="width:120px; height:120px;">제이홈스토리(덕이산이)</a></li>
+	 
+	  </ul>
+	</div>
+	</div>
+
+<p style="text-align:center; margin-top:20px; font-size:35px;">더 많은 정보가 궁금하다면❓👇</p>
+
+<div id="mybtn">
+<a href="https://machine.hyounglee.repl.co"><button style=" font-size:30px;width:250px; height:70px; margin-top:20px; margin:0 auto;"><p>오픈톡 바로가기</p></button></a></div>
+
+<div id="mybtn">
+<a href="https://machine.hyounglee.repl.co"><button style=" font-size:30px;width:250px; height:70px; margin-top:20px; margin-bottom:20px"><p>테스트</p> 하러가기</button></a></div>
+</body>
+</html>
