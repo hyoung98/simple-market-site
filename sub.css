@@ -1,0 +1,136 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    background:white;
+    background-repeat:no-repeat;
+    background-size : cover;
+    margin: 0; 
+    padding: 0; 
+  }
+  .h2{
+    color:#a97aff;
+    font-size: 15px;
+    text-align: center;
+  }
+  .h3{
+    color: black;
+    font-size: 13px;
+    text-align: center;
+  }
+  .file-upload {
+    background-color: #FFE2E2;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .file-upload-btn {
+    margin: 0;
+    
+    transition: all .2s ease;
+    color: #FFE2E2;
+   
+    border: none;
+    padding: 10px;
+    width:150px;
+    outline: none;
+    border-radius: 4px;
+  
+    font-weight: 700;
+  }
+  
+  .file-upload-btn:hover {
+   
+    color: #FFE2E2;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .file-upload-btn:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+  
+  .file-upload-content {
+    display: none;
+    text-align: center;
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .image-upload-wrap {
+    transition: all .2s ease;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 50px;
+    outline: none;
+    border: 4px Double black;
+    position: relative;
+  }
+  
+  /*.image-dropping,
+  .image-upload-wrap:hover {
+    background-color: #e0c3fc;
+    border: 4px Double #ffffff;
+  }*/
+  
+  /*.image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+  }*/
+  
+  .drag-text {
+    text-align: center;
+    margin-top: 55px;
+  }
+  
+  .drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: black;
+    padding: 60px 0;
+  }
+  
+  .file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .remove-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #cd9cfc;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .remove-image:hover {
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+  }
