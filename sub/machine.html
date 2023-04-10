@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>나의 캐릭터는?</title>
+	<link href="../sub.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+ 
+	<!-- Copyright (c) 2021 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. !-->
+
+	<div class="h2"><h2>
+
+<br>ex).스티커를 고르기 어렵다면?<br>나와 어울리는 스티커를 추천해드려요</h2></div>
+  <div class="h3"><h3><br>ex).사진을 업로드 해주세요!<br> 사진은 저장되지 않습니다.<br>안심하고 마음껏 사용해주세요</h3></div>
+  
+<!-- 코드펜 부분  !-->
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- 자바스크립트 부분  !-->
+<script> 
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $(".image-upload-wrap").hide();
+      $(".file-upload-image").attr("src", e.target.result);//사진 데이터 넣는 부분
+      $(".file-upload-content").show();
+      $(".image-title").html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+    init();
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $(".file-upload-input").replaceWith($(".file-upload-input").clone());
+  $(".file-upload-content").hide();
+  $(".image-upload-wrap").show();
+}
+$(".image-upload-wrap").bind("dragover", function () {
+  $(".image-upload-wrap").addClass("image-dropping");
+});
+$(".image-upload-wrap").bind("dragleave", function () {
+  $(".image-upload-wrap").removeClass("image-dropping");
+});
+
+</script>
+<!-- 자바스크립트 부분  align="right"!-->
+
+<div class="file-upload">
+
+  <div class="image-upload-wrap">
+
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" ></input>
+
+    <div class="drag-text">
+      <h2></h2>
+    </div>
+
+  </div>
+
+  <div class="file-upload-content">
+    <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+    <p class="resultMessege"></p>
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">다시하기</button>
+    </div>
+  </div>
+
+<div class ="file-upload-btn" style="float:left;">
+  <button onclick="$('.file-upload-input').trigger( 'click' )" type="button" style="width:80px; height:40px; margin-top:20px">업로드</div>
+<div class ="file-upload-btn" style="float:right;">
+  <button onclick="predict()" type="button" style="width:80px; height:40px; margin-top:20px">결과보기</div>
+
+
+
+</div>
+<!-- 코드펜 부분  !-->
+<div id="webcam-container"></div>
+<div id="label-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+
+
+    // More API functions here:
+    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/G7LflNquF/";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        //document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { 
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function predict() {
+        var image = document.getElementById("face-image")
+        const prediction = await model.predict(image,false);
+        prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability)); //순서배열
+        console.log(prediction[0].className);
+        var resultMessege;
+        switch(prediction[0].className){
+          case "activity":
+            resultMessege = "(여기에 캐릭터 분석 내용 정해서 넣는곳)ex).당신은 활동적인 성향입니다! 당신에게 어울리는 스포츠 달링햄을 추천드립니다";
+            break;
+
+          case "inactivity":
+            resultMessege = "(여기에 캐릭터 분석 내용 정해서 넣는곳)ex).당신은 집순이 성향입니다! 당신에게 어울리는 봄 달링햄을 추천드립니다.";
+            break;
+
+          default:
+            resultMessege = "알수 없습니다.";
+        }
+        $('.resultMessege').html(resultMessege);
+         var resultMessege2;
+        for (let i = 0; i < maxPredictions; i++) {
+          switch(prediction[i].className){
+          case "activity":
+            resultMessege2 = "당신은 활동적인 성향!! 스포츠 달링햄을 추천드립니다!";
+            
+            break;
+
+          case "inactivity":
+            resultMessege2 = "당신은 집순이 성향!! 덕이산이 스티커를 추천드립니다!";
+            break;
+
+          default:
+            resultMessege2 = "알수 없습니다.";
+        }
+        $('.resultMessege2').html(resultMessege2);
+            const classPrediction =
+                resultMessege2 + ": " + prediction[i].probability.toFixed(2) + " %";
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+
+        }
+    }
+</script>
+
+  </body>
+</html>
