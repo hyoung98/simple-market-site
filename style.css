@@ -41,20 +41,20 @@ body.fixed {
 }
 
 .b_image {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%;
-	border: 3px solid #f1f1f1;
+	margin-top: 10px;
 }
 
 #header { /*메뉴창 만들때 사용*/
 	position: relative;
 	height: 60px;
-	background-color: rgb(251, 255, 190);
+	background-color: #FEFF86;
 	box-shadow: 1px 1px 2px rgba(0,0,0,.2); /*헤더창의 밑줄*/
 }
 #header ul {
-	background-color: rgb(251, 255, 190);
+	background-color: #FEFF86;
 }
 #desktop {
 	text-align: center;
@@ -363,10 +363,11 @@ a{text-decoration:none; color:inherit;}
 	
     font-size: 25px;
     font-weight: bold;
-    color: black;
-    background-color: white;
+
+    color: #B0DAFF;
+    background-color: #FEFF86;
     border-radius: 8px;
-    box-shadow: 3px 3px 5px 0px black;
+    box-shadow: 3px 3px 5px 0px #B0DAFF;
     width: 200px;
     height: 60px;
 	display:inline-block;
@@ -378,7 +379,7 @@ a{text-decoration:none; color:inherit;}
   .btn > ul > li > img {
 	display:inline-block;
 	vertical-align:top;
-	margin-top: 30px;
+	margin-top: 20px;
 
   }
 
