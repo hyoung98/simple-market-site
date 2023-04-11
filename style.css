@@ -10,14 +10,19 @@ ul, ol {
 a {
 	text-decoration: none;
 	color: #000;
+	text-align: center;
+	margin-left: 5px;
 }
 body {
 
 	font-family: "Open Sans", sans-serif;
 	font-size: 1rem;
-	background: rgb(252, 255, 216);
+	background: white;
 
 	/*border: 1px solid #000; /*body부분이 어디인지 확인하는 용도*/
+}
+header {
+	background: rgb(252, 255, 216);
 }
 body.fixed {
 	position: fixed;
@@ -39,6 +44,7 @@ body.fixed {
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
+	border: 3px solid #f1f1f1;
 }
 
 #header { /*메뉴창 만들때 사용*/
@@ -145,7 +151,7 @@ body.fixed {
 	max-width: 600px;
 	height: 350px;
 	overflow: hidden;
-	border: 12px #f1f1f1 solid;
+	border: 1px #f1f1f1 solid;
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.3);
 	box-shadow: 0 0 5px rgba(0,0,0,.3);
 
@@ -211,7 +217,6 @@ body.fixed {
 	line-height: 20px;
 	/*text-align: center;*/
 	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 400;
 	background: rgba(241,241,241,.4);
